@@ -137,3 +137,27 @@ console.log( regex2.test(oracion2) );
 
 let regex3 = /\d+/;
 console.log( regex3.test("there are 10 apples"));
+
+const regexTelefono = /^\d{8}$/;
+
+console.log(regexTelefono.test("76383845"));
+
+const textPrecios = "El pedido cuesta 25$, y el envio son Bs5 mas impuesto de 2.5$";
+const regexNumeros = /\d+/g;
+
+const preciosEncontrados = textPrecios.match(regexNumeros);
+
+console.log(`Precios encontrados: ${preciosEncontrados}`);
+
+const tarjeta = "1234-4444-2222-1234";
+const ocultarDigitos = /\d{4}-\d{4}-\d{4}-/;
+
+const tarjetaMostrar = tarjeta.replace(ocultarDigitos, "XXXX-XXXX-XXXX-");
+
+console.log(tarjetaMostrar);
+
+const texto  = "Hola     mundo  con   Javascript";
+const buscarEspacios = /\s+/g;
+
+const textoLimpio = texto.replace(buscarEspacios, " ");
+console.log(textoLimpio);
