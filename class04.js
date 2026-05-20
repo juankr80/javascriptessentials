@@ -127,3 +127,98 @@ demonstrateScope();
 // n! = (n)(n-1)*...*1
 
 
+console.log("----------Closures");
+
+const createCounter = () => {
+    let count = 0;
+
+    return () => {
+        count += 1;
+        return count;
+    }
+}
+
+const counterA = createCounter();
+const counterB = createCounter();
+
+console.log( counterA() );
+console.log( counterA() );
+
+console.log( counterB() );
+
+const filtrarNumeros = (numeros, prueba) => {
+    const resultado = [];
+
+    for(const num of numeros){
+        if( prueba(num) ){
+            resultado.push(num);
+        }
+    }
+
+    return resultado;
+}
+
+const misNumeros = [1,2,3,5,4,8,4,3,45];
+
+const pares = filtrarNumeros( misNumeros, num => num % 2 === 0);
+console.log( pares );
+
+const mayores5 = filtrarNumeros( misNumeros, num => num > 5 );
+console.log(mayores5);
+
+
+console.log("------- Composition");
+
+const calculateFinalPrice = price => addTax( applyDiscount(price) );
+
+const applyDiscount = price => price * 0.9;
+const addTax = price => price * 1.15;
+
+console.log( calculateFinalPrice(100) );
+
+
+const compose = (f, g) => x => f(g(x)); 
+
+const doble = x => x*2;
+const sumarUno = x => x+1;
+
+const dobleMasUno = compose(doble, sumarUno);
+console.log(dobleMasUno(4));
+
+console.log("------Currying");
+
+const curriedSum = a => b => c => a + b +c;
+
+console.log( curriedSum(1)(2)(3) );
+console.log( curriedSum(1)(2) );
+
+const logger = severity => message => `[${severity}] - ${message}`;
+
+const logInfo = logger("INFO");
+const logError = logger("ERROR");
+
+console.log( logInfo("Appication Init") );
+
+console.log( logError("NaN"));
+
+
+const obtenerFromCache = () => {
+    let cache = [];
+
+    return (nombre) => {
+        if( cache[nombre] != undefined ){
+            return `Desde cache: ${cache[nombre]}`;
+        }
+        //Demora tiempo
+        const user = `UsuarioId: ${Math.floor((Math.random()*100/10)) }`;
+        cache[nombre] = user;
+        return `Desde BD ${user}`;
+    }
+}
+
+const leerDB = obtenerFromCache();
+
+console.log(`Obtener id usuario Jhon: ${leerDB("Jhon")}`);
+console.log(`Obtener id usuario Jhon: ${leerDB("Jhon")}`);
+console.log(`Obtener id usuario Jhon: ${leerDB("Jhon")}`);
+console.log(`Obtener id usuario Jhon: ${leerDB("Maria")}`);
