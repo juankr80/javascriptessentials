@@ -1,15 +1,15 @@
 console.log("------Object");
 
-//const name = "Alice";
+const name = "Alice";
 const age = 30;
 
-//const user = {name, age, role: 'Qa'};
+const user = {name, age, role: 'Qa'};
 
-//console.log( user );
-//console.log( user.name );
+console.log( user );
+console.log( user.name );
 
-//const userCaracteres = { name, 'a ño':2026};
-//console.log(userCaracteres["a ño"]);
+const userCaracteres = { name, 'a ño':2026};
+console.log(userCaracteres["a ño"]);
 
 const field = 'email';
 
@@ -51,12 +51,12 @@ const response = {
 
 const {
     data: {
-        user: {id, name},
+        user: {id, name:NameN},
         meta: {total}
     }
 } = response;
 
-console.log(`User ${id}, ${name}`);
+console.log(`User ${id}, ${NameN}`);
 
 const displayUser = ({ name, age = 0} ) => {
     console.log(`${name} is ${age}`)
