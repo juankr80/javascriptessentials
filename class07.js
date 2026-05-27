@@ -23,7 +23,7 @@ fetchData(5, (data, error) => {
 console.log("Fin");
 */
 
-
+/*
 function iniciarSesion(usuario, password, callback) {
     setTimeout(() => {
         console.log("1. Usuario autenticado con éxito.");
@@ -88,3 +88,75 @@ checkAge(30)
     .catch( (objError) => {
         console.log( objError.message );
     });
+
+
+    */
+  // Transformación de las funciones a Promesas
+const iniciarSesionPromesa = (usuario, password) => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve({ id: 101, nombre: "Carlos" }), 1000);
+    });
+};
+
+const obtenerPostsPromesa = (usuarioId) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            //var post = [{ id: 1, titulo: "Mi primer post" }];
+            var post = [];            
+
+            /*if( post.length <= 0){
+                reject("No se encontraron Post");
+            }*/
+            resolve( post )
+
+        }, 1000);
+    });
+};
+
+const obtenerComentariosPromesa = (postId) => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(["¡Excelente post!", "Me encantó la información."]), 1000);
+    });
+};    
+
+
+/*console.log("Iniciando session usuario");
+iniciarSesionPromesa("User1", "Clave123")
+    .then( (usuario) => {        
+        console.log(`Get usuario from promise ${usuario.nombre}`);
+        return obtenerPostsPromesa( usuario.id );
+    })
+    .then( (posts) =>{                
+        console.log(`El usuario tiene  ${posts.length} posts`);        
+        return obtenerComentariosPromesa( posts[0].id );        
+    })
+    .then( (comment) => {        
+         console.log(`Primer comentario: ${comment}`)        
+    })
+    .catch( (error) =>{
+        console.log(`Existio un error ${error}`)        
+    })
+    .finally( () => {                
+        console.log("Finalizando la ejecucion");
+    });  */
+
+console.log("------------Async /await");
+
+const loginUser =  async () => {
+    try {
+        const user = await iniciarSesionPromesa("username", "password123");
+        const posts = await obtenerPostsPromesa( user.id ); 
+        
+        if( posts.length > 0 )  {
+            const comments = await obtenerComentariosPromesa( posts[0].id );
+            console.log("Coments", comments);
+        }
+    } catch (error) {
+        console.log(error);
+    } finally {
+        console.log("Siempre se ejecuta");
+    }
+}
+
+loginUser();
+
