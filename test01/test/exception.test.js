@@ -15,6 +15,6 @@ test('compiling an empty string throws', () => {
 
   expect(() => compileCode('')).toThrow(/empty string/)
 
-  expect(() => compileCode('value')).not.toThrow(/empty string/)
+  expect(() => compileCode('value')).not.toThrow()
 
 });
