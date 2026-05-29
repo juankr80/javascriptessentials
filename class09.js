@@ -1,7 +1,7 @@
 const fetchUsers = () => {
     //const response = await fetch('https://jsonplaceholder.typicode.com/users');
 
-    fetch('https://jsonplaceholder.typicode.com/users').then( async (response) => {
+    fetch('https://jsonplaceholder.typicode.com/users').then( (response) => {
         console.log(response);
 
         if( !response.ok ){
@@ -10,21 +10,18 @@ const fetchUsers = () => {
 
         const response2 = response.clone();
 
-        const usuarios = response.json();
+        const usuariosJson = response.json();                
+        const usuariosStr =  response2.text(); 
+        
+        //Solucion de procesar 2 operaciones sin usar await
+        return Promise.all([usuariosJson, usuariosStr]).then(([json, str]) => {
+            return { json, str };            
+        });
 
-        const usuariosStr = await response2.text(); 
-        console.log("STR: "+usuariosStr);
-
-        return usuarios
-        //console.log( users );
-
-    }).then( (usuarios) => {
-        console.log( usuarios[0]);
-    });
-
-    //console.log("Response", response);
-
-    
+    }).then( (responses) => {
+        console.log( `json user[0].name: ${responses.json[0].name}` );
+        console.log( "str: "+responses.str.substring(0,25)+"..." );
+    });    
 }
 
 fetchUsers();
