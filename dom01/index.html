@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <link rel="stylesheet" href="style.css" />
+        <script src="app.js"></script>
+        <title>DOM Example 01</title>    
+    </head>
+    <body>
+        <header>
+            <h1 id="title">DOM Manipulation Examples</h1>
+        </header>
+
+        <main>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a id="product_nav" href="#">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>    
+            
+            <article class="tab-panel">
+                <h2 class="panel-title">Title of the article</h2>
+                
+                <section id="main-section" class="panel-content" >
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam
+                        lectus. Set sit amet ipsum mauris. <span data-tag='name'>Maecenas congue</span> ligula as quam
+                        viverra nec consectetur ant hendrerit. Donec et mollis dolor. Praesent
+                        et diam eget libero <span data-tag='name'>egestas mattis</span> sit amet vitae augue. Nam tincidunt
+                        congue enim, ut porta lorem lacinia consectetur.
+                    </p>
+                </section>
+
+                                
+                <section id="comments-section" class="panel-content"> 
+
+                    <h2 class="panel-title">Comments</h2>
+                    <input id="comment-input" class="form-input" type="text" placeholder="Enter a comment...">
+                    <button id="add-comment" class="btn-primary">Add a comment</button>
+                    
+                    <div class="comment-card">
+                        <div class="meta-container">
+                            <span class="meta-date">2026-02-10</span>
+                            <span class="meta-user">Por: <strong>Juan Pérez</strong></span>
+                        </div>
+                    
+                        <p class="comment">
+                            Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum
+                            dolor sit amet, consectetur adipisicing elit. Aenean ut gravida lorem.
+                            Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
+                        </p>
+                    </div>
+
+                </section>                
+            </article>            
+        </main>
+
+        <footer class="main-footer">
+            <p>©Copyright 2026. Todos los derechos reservados.</p>
+        </footer>        
+    </body>
+</html>

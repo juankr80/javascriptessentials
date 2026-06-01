@@ -1,0 +1,220 @@
+body { 
+    font-family: sans-serif; 
+    padding: 20px; 
+}
+
+h1 {
+    color: #007bff;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Alinea los li en fila */
+    border-bottom: 2px solid #e0e0e0; /* La línea base gris */
+}
+
+li {
+  margin-right: 8px; /* Separación entre pestañas */
+}
+
+/* Estilo del enlace (el área clickeable) */
+li a {
+  display: block;
+  padding: 12px 24px;
+  text-decoration: none;
+  color: #666;
+  font-family: sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  /* Truco visual: borde transparente abajo para que al activarse no "salte" el texto */
+  border-bottom: 3px solid transparent; 
+  border-radius: 6px 6px 0 0; /* Bordes redondeados arriba */
+}
+
+/* Efecto Hover (cuando pasas el mouse) */
+li a:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* 5. Estado Activo (La pestaña seleccionada) */
+li.active a {
+  color: #007bff; /* Color azul de marca */
+  border-bottom: 3px solid #007bff; /* Línea azul que resalta */
+  background-color: #fff; /* Fondo blanco para "fusionarse" con el contenido de abajo */
+}
+
+/* Contenedor principal de la sección */
+.tab-panel {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-top: none; /* Quitamos el borde superior para que "encaje" con la línea del nav */
+  border-radius: 0 0 8px 8px; /* Redondeamos solo las esquinas de abajo */
+  padding: 32px; /* Espaciado interno generoso para que respire el contenido */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra suave para dar volumen */
+  font-family: sans-serif;
+  color: #333333;
+}
+
+/* Estilos para el Título de la sección */
+.panel-title {
+  font-size: 1.5rem; /* Tamaño destacado */
+  font-weight: 600;
+  margin-top: 0; /* Quitamos el margen por defecto de arriba */
+  margin-bottom: 16px; /* Separación con el contenido inferior */
+  color: #111111;
+  letter-spacing: -0.5px; /* Un toque estético moderno */
+}
+
+/* Estilos para el bloque de contenido (párrafos, textos, etc.) */
+.panel-content {
+  font-size: 1rem;
+  line-height: 1.6; /* Mayor interlineado para que sea muy fácil de leer */
+  color: #555555; /* Gris un poco más suave para el texto largo */
+}
+
+/* Para un párrafo extra dentro del contenido */
+.panel-content p {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+
+/* --- ESTILOS DEL INPUT --- */
+.form-input {
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* --- ESTILOS DEL BOTÓN --- */
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover del botón (se oscurece un poco) */
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Efecto de "presionado" al hacer clic */
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+
+.meta-container {
+  display: flex; /* Activamos Flexbox */
+  justify-content: space-between; /* Empuja los elementos a los extremos */
+  align-items: center; /* Los alinea verticalmente por si uno es más alto que el otro */
+  
+  /* Estética para que combine con el resto del diseño */
+  padding: 12px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed #e0e0e0; /* Una línea punteada sutil para separar */
+  font-family: sans-serif;
+  font-size: 0.85rem; /* Texto ligeramente más pequeño */
+}
+
+.meta-user {
+  color: #333;
+}
+
+.meta-user strong {
+  color: #003268; /* Usamos otro color para acentuar el nombre */
+}
+
+.meta-date {
+  color: #888; /* Gris más suave para la fecha */
+}
+
+
+
+/* --- ESTILOS DEL FOOTER --- */
+
+.main-footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.main-footer p {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 0;  
+}
+
+
+.highlight { 
+    color: rgb(2, 29, 80); 
+    background: #a8d1ff; 
+    padding: 4px 8px; 
+    border-radius: 4px; 
+}
+
+
+/* Estilos para el formulario */
+.form-content {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 8px;  
+  max-width: 500px; /* Evita que el formulario se estire demasiado en pantallas anchas */
+  margin: 0 auto; /* Lo centra en la pantalla si está suelto */
+}
+
+/* Estilos de las etiquetas (Labels) */
+.form-group {    
+  color: #444444;
+  margin-bottom: 6px;
+  margin-top: 16px; /* Reemplaza el uso de <br> para dar espacio arriba */
+}
+
+/* Quita el margen superior al primer label para que no se desfase */
+.form-group :first-of-type {
+  margin-top: 0;
+}
+
+form label {
+    display: block;
+    width: 100px;
+}
+
+/* Estilos para Inputs de texto y Textarea */
+.form-input {
+  padding: 10px 14px;  
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  color: #333333;
+  outline: none;
+  font-family: sans-serif; /* Corrige el textarea porque usa otra fuente por defecto */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 300px;
+}
+
+textarea.form-input {
+  resize: vertical; 
+  min-height: 80px;
+}
+
+/* Efecto Focus (Cuando el usuario hace clic para escribir) */
+.form-content .form-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
